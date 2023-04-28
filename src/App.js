@@ -5,6 +5,7 @@ import faucetContract from "./ethereum/faucet";
 
 function App() {
   const [walletAddress, setWalletAddress] = useState("");
+  const [signer, setSigner] = useState()
 
   useEffect(() => {
     getCurrentWalletConnected();
@@ -17,10 +18,11 @@ function App() {
         // get provider
         const provider = new ethers.providers.Web3Provider(window.ethereum)
         //get accounts
+        const accounts = await provider.send("eth_requestAccounts",[])
+        /* get signer */ 
+          setSigner(provider.getSigner());
         /* MetaMask is installed */
-        const accounts = await window.ethereum.request({
-          method: "eth_requestAccounts",
-        });
+        
         setWalletAddress(accounts[0]);
         console.log(accounts[0]);
       } catch (err) {
