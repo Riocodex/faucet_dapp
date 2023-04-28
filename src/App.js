@@ -41,6 +41,15 @@ function App() {
   const getCurrentWalletConnected = async () => {
     if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
       try {
+         // get provider
+         const provider = new ethers.providers.Web3Provider(window.ethereum)
+         //get accounts
+         const accounts = await provider.send("eth_requestAccounts",[])
+         /* get signer */ 
+           setSigner(provider.getSigner());
+ 
+           /** local contract instance */
+           setFcContract(faucetContract(provider))
         const accounts = await window.ethereum.request({
           method: "eth_accounts",
         });
