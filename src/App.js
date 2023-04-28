@@ -44,15 +44,13 @@ function App() {
          // get provider
          const provider = new ethers.providers.Web3Provider(window.ethereum)
          //get accounts
-         const accounts = await provider.send("eth_requestAccounts",[])
+         const accounts = await provider.send("eth_accounts",[])
          /* get signer */ 
            setSigner(provider.getSigner());
  
            /** local contract instance */
            setFcContract(faucetContract(provider))
-        const accounts = await window.ethereum.request({
-          method: "eth_accounts",
-        });
+       
         if (accounts.length > 0) {
           setWalletAddress(accounts[0]);
           console.log(accounts[0]);
