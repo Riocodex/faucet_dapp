@@ -83,6 +83,8 @@ function App() {
   };
 
     const getRIOHandler = async ()=>{
+      setWithdrawSucess("")
+      setWithdrawError("")
       try {
           const fcContractWithSigner = fcContract.connect(signer)
           const resp =  await fcContractWithSigner.requestTokens()
