@@ -90,7 +90,7 @@ function App() {
           const resp =  await fcContractWithSigner.requestTokens()
           console.log(resp);
           setWithdrawSucess("operation succeeded - enjoy your tokens");
-          setTransactionData(resp.transactionHash)
+          setTransactionData(resp.hash)
       } catch (error) {
         console.error(error.message);
         setWithdrawError(error.message);
@@ -146,7 +146,9 @@ function App() {
                   />
                 </div>
                 <div className="column">
-                  <button className="button is-link is-medium" onClick={getRIOHandler }>
+                  <button className="button is-link is-medium" 
+                  onClick={getRIOHandler }
+                  disabled={walletAddress ? false :true }>
                     GET TOKENS
                   </button>
                 </div>
