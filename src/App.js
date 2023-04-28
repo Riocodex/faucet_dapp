@@ -131,7 +131,7 @@ function App() {
               )}
               {withdrawSuccess && (
                 <div className="withdraw-success">{withdrawSuccess}</div>
-              )}
+              )}{" "}
             </div>
             <div className="box address-box">
               <div className="columns">
@@ -151,7 +151,7 @@ function App() {
               <article className="panel is-grey-darker">
                 <p className="panel-heading">Transaction Data</p>
                 <div className="panel-block">
-                  <p>transaction data</p>
+                  <p>{transactionData ? `Transaction hash: ${transactionData}` : "--"}</p>
                 </div>
               </article>
             </div>
