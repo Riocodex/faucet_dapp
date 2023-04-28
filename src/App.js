@@ -84,7 +84,7 @@ function App() {
 
     const getRIOHandler = async ()=>{
       setWithdrawSucess("")
-      setWithdrawError("")
+      setWithdrawError(" ")
       try {
           const fcContractWithSigner = fcContract.connect(signer)
           const resp =  await fcContractWithSigner.requestTokens()
@@ -142,6 +142,7 @@ function App() {
                     className="input is-medium"
                     type="text"
                     placeholder="Enter your wallet address (0x...)"
+                    defaultValue={walletAddress}
                   />
                 </div>
                 <div className="column">
