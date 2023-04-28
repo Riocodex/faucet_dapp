@@ -7,6 +7,10 @@ function App() {
   const [walletAddress, setWalletAddress] = useState("");
   const [signer, setSigner] = useState()
   const [fcContract, setFcContract] = useState()
+  const [withdrawError, setWithdrawError] = useState("");
+  const [withdrawSuccess, setWithdrawSucess] = useState("");
+  const [transactionData, setTransactionData ] = useState("");
+
 
   useEffect(() => {
     getCurrentWalletConnected();
@@ -82,9 +86,12 @@ function App() {
       try {
           const fcContractWithSigner = fcContract.connect(signer)
           const resp =  await fcContractWithSigner.requestTokens()
-          console.log(resp)
+          console.log(resp);
+          setWithdrawSucess("operation succeeded - enjoy your tokens");
+          setTransactionData(resp.transactionHash)
       } catch (error) {
-        console.error(error .message);
+        console.error(error.message);
+        setWithdrawError(error.message);
       }
     }
   return (
@@ -128,7 +135,7 @@ function App() {
                   />
                 </div>
                 <div className="column">
-                  <button className="button is-link is-medium">
+                  <button className="button is-link is-medium" onClick={getRIOHandler }>
                     GET TOKENS
                   </button>
                 </div>
