@@ -6,6 +6,7 @@ import faucetContract from "./ethereum/faucet";
 function App() {
   const [walletAddress, setWalletAddress] = useState("");
   const [signer, setSigner] = useState()
+  const [fcContract, setFcContract] = useState()
 
   useEffect(() => {
     getCurrentWalletConnected();
@@ -21,6 +22,9 @@ function App() {
         const accounts = await provider.send("eth_requestAccounts",[])
         /* get signer */ 
           setSigner(provider.getSigner());
+
+          /** local contract instance */
+          setFcContract(faucetContract(provider))
         /* MetaMask is installed */
         
         setWalletAddress(accounts[0]);
