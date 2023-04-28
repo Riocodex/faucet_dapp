@@ -78,6 +78,13 @@ function App() {
     }
   };
 
+    const getRIOHandler = async ()=>{
+      try {
+
+      } catch (error) {
+        console.error(error .message);
+      }
+    }
   return (
     <div>
       <nav className="navbar">
