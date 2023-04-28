@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { ethers } from "ethers";
-
+import faucetContract from "./ethereum/faucet";
 
 function App() {
   const [walletAddress, setWalletAddress] = useState("");
@@ -14,6 +14,9 @@ function App() {
   const connectWallet = async () => {
     if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
       try {
+        // get provider
+        const provider = new ethers.providers.Web3Provider(window.ethereum)
+        //get accounts
         /* MetaMask is installed */
         const accounts = await window.ethereum.request({
           method: "eth_requestAccounts",
