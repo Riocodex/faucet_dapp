@@ -125,6 +125,14 @@ function App() {
           <div className="container has-text-centered main-content">
             <h1 className="title is-1">Faucet</h1>
             <p>Fast and reliable. 50 RIO/day.</p>
+            <div className="mt-5">
+              {withdrawError && (
+                <div className="withdraw-error">{withdrawError}</div>
+              )}
+              {withdrawSuccess && (
+                <div className="withdraw-success">{withdrawSuccess}</div>
+              )}
+            </div>
             <div className="box address-box">
               <div className="columns">
                 <div className="column is-four-fifths">
