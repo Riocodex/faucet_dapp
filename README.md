@@ -1,3 +1,1 @@
-# Starter code for Faucet dApp tutorial
-
-Boilerplate code consisting of a new create-react-app project and some basic HTML and CSS.
+I have developed a web-based application that facilitates the purchase of tokens. The application provides a user-friendly interface that allows users to easily buy tokens using a variety of payment methods. Its intuitive design and streamlined functionality make it a convenient platform for purchasing tokens.
