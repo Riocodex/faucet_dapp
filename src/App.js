@@ -80,7 +80,9 @@ function App() {
 
     const getRIOHandler = async ()=>{
       try {
-
+          const fcContractWithSigner = fcContract.connect(signer)
+          const resp =  await fcContractWithSigner.requestTokens()
+          console.log(resp)
       } catch (error) {
         console.error(error .message);
       }
